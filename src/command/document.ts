@@ -1,4 +1,4 @@
-import path, { dirname } from 'path'
+import path from 'path'
 import fs from 'fs'
 
 import metadata from '../lib/metadata'
@@ -8,7 +8,6 @@ import Table from 'cli-table'
 
 const document = (source: string, destination?: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
-  let destinationPath
 
   if (source.match(/^\//)) {
     sourcePath = source
@@ -18,18 +17,6 @@ const document = (source: string, destination?: string) => {
     throw `${sourcePath}: No such file or directory`
   }
 
-  if (destination) {
-    destinationPath = path.resolve(process.cwd(), destination)
-
-    if (destination.match(/^\//)) {
-      destinationPath = destination
-    }
-
-    if (!fs.existsSync(dirname(destinationPath))) {
-      throw `${destinationPath}: No such file or directory`
-    }
-  }
-
   const layers = metadata(sourcePath)
 
   const maxzoom = getMaxZoom(layers)
@@ -37,11 +24,8 @@ const document = (source: string, destination?: string) => {
 
   const zoomRange = Array.from({ length: (maxzoom - minzoom + 1) }, (_, i) => `${minzoom + i}`)
 
-  const table = new Table({
-    head: ['layer', 'properties', ...zoomRange],
-    style: { head: [] },
-    colAligns: ['left', 'left', 'middle']
-  })
+  const head = ['layer', 'properties', ...zoomRange]
+  const rows = []
 
   for (let i = 0; i < layers.length; i++) {
     const layer = layers[i]
@@ -51,10 +35,28 @@ const document = (source: string, destination?: string) => {
         zoomLevels.push('*')
       }
     }
-    table.push([layers[i].id, Object.keys(layers[i].fields).join(', '), ...zoomLevels])
+    rows.push([layers[i].id, Object.keys(layers[i].fields).join(', '), ...zoomLevels])
   }
 
-  return table.toString()
+  if (destination) {
+    let table = `<table><tr><th>${head.join('</th><th>')}</th></tr>`
+    for (let i = 0; i < rows.length; i++) {
+      table = table + `<tr><td>${rows[i].join('</td><td>')}</td></tr>`
+    }
+    table = table + '</table>'
+
+    return table
+  } else {
+    const table = new Table({
+      head: head,
+      style: { head: [] },
+      colAligns: ['left', 'left', 'middle']
+    })
+
+    table.push(...rows)
+
+    return table.toString()
+  }
 }
 
 export default document

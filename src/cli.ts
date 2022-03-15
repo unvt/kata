@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+import path, { dirname } from 'path'
+import fs from 'fs'
+
 import { Command } from 'commander'
 import document from './command/document'
 import filter from './command/filter'
@@ -9,8 +12,28 @@ const documentCommand = new Command()
   .arguments('<source> [destination]')
   .description('output the metadata from the <source>')
   .action((source: string, destination: string) => {
+
+    let destinationPath
+
+    if (destination) {
+      destinationPath = path.resolve(process.cwd(), destination)
+
+      if (destination.match(/^\//)) {
+        destinationPath = destination
+      }
+
+      if (!fs.existsSync(dirname(destinationPath))) {
+        throw `${destinationPath}: No such file or directory`
+      }
+    }
+
     const table = document(source, destination)
-    console.log(table.toString())
+
+    if (destinationPath) {
+      fs.writeFileSync(destinationPath, table)
+    } else {
+      console.log(table)
+    }
   })
 
 const filterCommand = new Command()
