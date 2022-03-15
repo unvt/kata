@@ -1,14 +1,8 @@
-import { Command } from 'commander'
+const filter = (source: string, destination: string) => {
+  console.log(source)
+  console.log(destination)
 
-const program = new Command()
+  return true
+}
 
-program
-  .name('document')
-  .arguments('<source> [destination]')
-  .description('output the GeoJSON Text Sequence from the <source>')
-  .action((source: string, destination: string) => {
-    console.log(source)
-    console.log(destination)
-  })
-
-export default program
+export default filter

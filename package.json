@@ -2,7 +2,9 @@
   "name": "kata",
   "version": "1.0.0",
   "description": "A vector tile design information processing tool",
-  "main": "index.js",
+  "bin": {
+    "kata": "dist/cli.js"
+  },
   "scripts": {
     "build": "tsc -p .",
     "watch": "tsc -w",
@@ -17,13 +19,14 @@
   },
   "author": "",
   "dependencies": {
+    "better-sqlite3": "^7.5.0",
     "cli-table": "^0.3.11",
-    "commander": "^8.2.0",
-    "install": "^0.13.0",
-    "npm": "^8.5.4"
+    "commander": "^8.2.0"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.5.0",
     "@types/chai": "^4.2.11",
+    "@types/cli-table": "^0.3.0",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.14",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
