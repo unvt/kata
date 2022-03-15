@@ -6,20 +6,28 @@ import { getMaxZoom, getMinZoom } from '../lib/lib'
 import Table from 'cli-table'
 
 
-const document = (source: string, destination: string) => {
+const document = (source: string, destination?: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
-  let destinationPath = path.resolve(process.cwd(), destination)
+  let destinationPath
 
   if (source.match(/^\//)) {
     sourcePath = source
   }
 
-  if (destination.match(/^\//)) {
-    destinationPath = destination
+  if (!fs.existsSync(sourcePath)) {
+    throw `${sourcePath}: No such file or directory`
   }
 
-  if (!fs.existsSync(sourcePath) || !fs.existsSync(dirname(destinationPath))) {
-    throw `${sourcePath}: No such file or directory`
+  if (destination) {
+    destinationPath = path.resolve(process.cwd(), destination)
+
+    if (destination.match(/^\//)) {
+      destinationPath = destination
+    }
+
+    if (!fs.existsSync(dirname(destinationPath))) {
+      throw `${destinationPath}: No such file or directory`
+    }
   }
 
   const layers = metadata(sourcePath)
