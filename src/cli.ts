@@ -37,12 +37,14 @@ const documentCommand = new Command()
   })
 
 const filterCommand = new Command()
-  .name('document')
-  .arguments('<source> [destination]')
+  .name('filter')
+  .arguments('<source>')
   .description('output the metadata from the <source>')
-  .action((source: string, destination: string) => {
-    const res = filter(source, destination)
-    console.log(res)
+  .action((source: string) => {
+    const geojsons = filter(source)
+    for (let i = 0; i < geojsons.length; i++) {
+      console.log(JSON.stringify(geojsons[i]))
+    }
   })
 
 

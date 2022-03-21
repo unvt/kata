@@ -1,0 +1,12 @@
+airport:
+  source: ./test1.geojson
+  properties:
+    name: properties["name:ja"]
+  minzoom: 8
+  maxzoom: 14
+voxel:
+  source: ./test2.geojson
+  properties:
+    title: properties.label
+  minzoom: 2
+  maxzoom: 10
