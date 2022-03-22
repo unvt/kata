@@ -10,3 +10,9 @@ voxel:
     title: properties.label
   minzoom: 2
   maxzoom: 10
+onlineGeojson:
+  source: https://gist.githubusercontent.com/miya0001/56c3dc174f5cdf1d9565cbca0fbd3c48/raw/c13330036d28ef547a8a87cb6df3fa12de19ddb6/test.geojson
+  properties:
+    title: properties.label
+  minzoom: 2
+  maxzoom: 10
