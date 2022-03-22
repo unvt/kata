@@ -39,7 +39,7 @@ const documentCommand = new Command()
 const filterCommand = new Command()
   .name('filter')
   .arguments('<source>')
-  .description('output the metadata from the <source>')
+  .description('output the ndjson from the <source>')
   .action(async (source: string) => {
     const geojsons = await filter(source)
     for (let i = 0; i < geojsons.length; i++) {
