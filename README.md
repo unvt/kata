@@ -71,3 +71,7 @@ Or
 $ npm install -g .
 $ kata help
 ```
+
+## License
+
+MIT
