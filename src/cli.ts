@@ -40,8 +40,8 @@ const filterCommand = new Command()
   .name('filter')
   .arguments('<source>')
   .description('output the metadata from the <source>')
-  .action((source: string) => {
-    const geojsons = filter(source)
+  .action(async (source: string) => {
+    const geojsons = await filter(source)
     for (let i = 0; i < geojsons.length; i++) {
       console.log(JSON.stringify(geojsons[i]))
     }

@@ -1,12 +1,13 @@
 import fs from 'fs'
 import YAML from 'js-yaml'
 import path from 'path'
+import fetch from 'node-fetch'
 
 interface KataYAML {
   [key: string]: any;
 }
 
-const filter = (source: string) => {
+const filter = async (source: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
 
   if (source.match(/^\//)) {
@@ -23,12 +24,20 @@ const filter = (source: string) => {
     const features = json[key]
     const src = features.source
 
-    let srcPath = path.resolve(basedir, src)
-    if (src.match(/^\//)) {
-      srcPath = src
+    let geojson
+
+    if (src.match(/^https?:\/\//)) {
+      const res = await fetch(src)
+      geojson = await res.json()
+    } else {
+      let srcPath = path.resolve(basedir, src)
+      if (src.match(/^\//)) {
+        srcPath = src
+      }
+
+      geojson = JSON.parse(fs.readFileSync(srcPath, 'utf8'))
     }
 
-    const geojson = JSON.parse(fs.readFileSync(srcPath, 'utf8'))
     geojson.tippecanoe = {}
 
     if (String(features.minzoom).length && features.minzoom >= 0) {
