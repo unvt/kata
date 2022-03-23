@@ -1,0 +1,15 @@
+{
+"name": "open-reverse-geocoder-ja-tiles",
+"description": "Japanese Address Tilesets for open-reverse-geocoder",
+"version": "2",
+"minzoom": "10",
+"maxzoom": "10",
+"center": "141.503906,38.410427,10",
+"bounds": "122.695313,20.303418,154.335938,45.583290",
+"type": "overlay",
+"attribution": "「国土数値情報（行政区域データ）」（国土交通省）をもとに株式会社Geolonia作成",
+"format": "pbf",
+"generator": "tile-join v1.36.0",
+"generator_options": "tippecanoe --no-tile-compression '--maximum-zoom=10' '--minimum-zoom=10' -l japanese-admins -o /Users/j_igarashi/Documents/git/open-geocoding/open-reverse-geocoder-ja/tmp/admins.mbtiles --force; tile-join --force --no-tile-compression -n open-reverse-geocoder-ja-tiles -N 'Japanese Address Tilesets for open-reverse-geocoder' -A '「国土数値情報（行政区域データ）」（国土交通省）をもとに株式会社Geolonia作成' '--output-to-directory=/Users/j_igarashi/Documents/git/open-geocoding/open-reverse-geocoder-ja/docs/tiles' --no-tile-size-limit /Users/j_igarashi/Documents/git/open-geocoding/open-reverse-geocoder-ja/tmp/admins.mbtiles",
+"json": "{\"vector_layers\": [ { \"id\": \"japanese-admins\", \"description\": \"\", \"minzoom\": 10, \"maxzoom\": 10, \"fields\": {\"city\": \"String\", \"prefecture\": \"String\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"japanese-admins\",\"count\": 61274,\"geometry\": \"Polygon\",\"attributeCount\": 2,\"attributes\": [{\"attribute\": \"city\",\"count\": 1000,\"type\": \"string\",\"values\": [\"\",\"あきる野市\",\"あま市\",\"あわら市\",\"いすみ市\",\"いちき串木野市\",\"いなべ市\",\"いわき市\",\"うきは市\",\"うるま市\",\"えびの市\",\"かすみがうら市\",\"かほく市\",\"さいたま市中央区\",\"さいたま市北区\",\"さいたま市南区\",\"さいたま市大宮区\",\"さいたま市岩槻区\",\"さいたま市桜区\",\"さいたま市浦和区\",\"さいたま市緑区\",\"さいたま市西区\",\"さいたま市見沼区\",\"さくら市\",\"さぬき市\",\"たつの市\",\"つがる市\",\"つくばみらい市\",\"つくば市\",\"にかほ市\",\"ひたちなか市\",\"ふじみ野市\",\"みどり市\",\"みやま市\",\"みよし市\",\"むつ市\",\"一宮市\",\"一関市\",\"七尾市\",\"三井郡大刀洗町\",\"三原市\",\"三好市\",\"三好郡東みよし町\",\"三宅村\",\"三島市\",\"三島郡出雲崎町\",\"三島郡島本町\",\"三戸郡三戸町\",\"三戸郡五戸町\",\"三戸郡南部町\",\"三戸郡新郷村\",\"三戸郡田子町\",\"三戸郡階上町\",\"三方上中郡若狭町\",\"三方郡美浜町\",\"三木市\",\"三条市\",\"三次市\",\"三沢市\",\"三浦市\",\"三浦郡葉山町\",\"三潴郡大木町\",\"三田市\",\"三笠市\",\"三豊市\",\"三郷市\",\"三重郡川越町\",\"三重郡朝日町\",\"三重郡菰野町\",\"三養基郡みやき町\",\"三養基郡上峰町\",\"三養基郡基山町\",\"三鷹市\",\"上伊那郡中川村\",\"上伊那郡南箕輪村\",\"上伊那郡宮田村\",\"上伊那郡箕輪町\",\"上伊那郡辰野町\",\"上伊那郡飯島町\",\"上北郡おいらせ町\",\"上北郡七戸町\",\"上北郡六ヶ所村\",\"上北郡六戸町\",\"上北郡東北町\",\"上北郡横浜町\",\"上北郡野辺地町\",\"上天草市\",\"上尾市\",\"上山市\",\"上川郡上川町\",\"上川郡下川町\",\"上川郡剣淵町\",\"上川郡和寒町\",\"上川郡当麻町\",\"上川郡愛別町\",\"上川郡新得町\",\"上川郡東川町\",\"上川郡東神楽町\",\"上川郡比布町\",\"上川郡清水町\"]},{\"attribute\": \"prefecture\",\"count\": 47,\"type\": \"string\",\"values\": [\"三重県\",\"京都府\",\"佐賀県\",\"兵庫県\",\"北海道\",\"千葉県\",\"和歌山県\",\"埼玉県\",\"大分県\",\"大阪府\",\"奈良県\",\"宮城県\",\"宮崎県\",\"富山県\",\"山口県\",\"山形県\",\"山梨県\",\"岐阜県\",\"岡山県\",\"岩手県\",\"島根県\",\"広島県\",\"徳島県\",\"愛媛県\",\"愛知県\",\"新潟県\",\"東京都\",\"栃木県\",\"沖縄県\",\"滋賀県\",\"熊本県\",\"石川県\",\"神奈川県\",\"福井県\",\"福岡県\",\"福島県\",\"秋田県\",\"群馬県\",\"茨城県\",\"長崎県\",\"長野県\",\"青森県\",\"静岡県\",\"香川県\",\"高知県\",\"鳥取県\",\"鹿児島県\"]}]}]}}"
+}
