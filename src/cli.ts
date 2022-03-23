@@ -12,7 +12,6 @@ const documentCommand = new Command()
   .arguments('<source> [destination]')
   .description('output the metadata from the <source>')
   .action((source: string, destination: string) => {
-
     let destinationPath
 
     if (destination) {
@@ -47,7 +46,6 @@ const filterCommand = new Command()
     }
   })
 
-
 const program = new Command()
 const version = require('../package.json').version
 
@@ -58,7 +56,7 @@ try {
     .addCommand(filterCommand)
 
   program.parse(process.argv)
-} catch(e) {
+} catch (e) {
   console.error(e)
   process.exit(1)
 }

@@ -3,7 +3,6 @@ import path from 'path'
 import metadata from '../src/lib/metadata'
 
 describe('parse the metadata.', () => {
-
   it('should get the metadatas.', async () => {
     const layers = metadata(path.join(__dirname, './data/metadata.json'))
 

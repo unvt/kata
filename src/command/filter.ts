@@ -4,7 +4,7 @@ import path from 'path'
 import fetch from 'node-fetch'
 
 interface KataYAML {
-  [key: string]: any;
+  [key: string]: any
 }
 
 const filter = async (source: string) => {
@@ -49,7 +49,7 @@ const filter = async (source: string) => {
     }
 
     for (const prop in features.properties) {
-      for (let i = 0;  i < geojson.features.length; i++) {
+      for (let i = 0; i < geojson.features.length; i++) {
         const property = `geojson.features[i].${features.properties[prop]}`
         geojson.features[i].properties[prop] = eval(property)
       }

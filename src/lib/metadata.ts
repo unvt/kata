@@ -8,9 +8,11 @@ const metadata = (file: string) => {
   try {
     const metadata = JSON.parse(fs.readFileSync(file, 'utf-8'))
     layers = JSON.parse(metadata.json)
-  } catch(e) {
+  } catch (e) {
     const db = new sqlite(file)
-    const metadata = db.prepare("SELECT value FROM metadata where name='json'").all();
+    const metadata = db
+      .prepare("SELECT value FROM metadata where name='json'")
+      .all()
     layers = JSON.parse(metadata[0].value)
   }
 

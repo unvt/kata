@@ -3,24 +3,24 @@ import { getMinZoom, getMaxZoom } from '../src/lib/lib'
 
 const layers = [
   {
-    "id": "first-layer",
-    "description": "",
-    "minzoom": 8,
-    "maxzoom": 12,
-    "fields": {
-      "city": "String",
-      "prefecture": "String"
-    }
+    id: 'first-layer',
+    description: '',
+    minzoom: 8,
+    maxzoom: 12,
+    fields: {
+      city: 'String',
+      prefecture: 'String',
+    },
   },
   {
-    "id": "second-layer",
-    "description": "",
-    "minzoom": 3,
-    "maxzoom": 14,
-    "fields": {
-      "city": "String",
-      "prefecture": "String"
-    }
+    id: 'second-layer',
+    description: '',
+    minzoom: 3,
+    maxzoom: 14,
+    fields: {
+      city: 'String',
+      prefecture: 'String',
+    },
   },
 ]
 

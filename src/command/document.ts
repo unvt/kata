@@ -5,7 +5,6 @@ import metadata from '../lib/metadata'
 import { getMaxZoom, getMinZoom } from '../lib/lib'
 import Table from 'cli-table'
 
-
 const document = (source: string, destination?: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
 
@@ -22,7 +21,10 @@ const document = (source: string, destination?: string) => {
   const maxzoom = getMaxZoom(layers)
   const minzoom = getMinZoom(layers)
 
-  const zoomRange = Array.from({ length: (maxzoom - minzoom + 1) }, (_, i) => `${minzoom + i}`)
+  const zoomRange = Array.from(
+    { length: maxzoom - minzoom + 1 },
+    (_, i) => `${minzoom + i}`,
+  )
 
   const head = ['layer', 'properties', ...zoomRange]
   const rows = []
@@ -35,7 +37,11 @@ const document = (source: string, destination?: string) => {
         zoomLevels.push('*')
       }
     }
-    rows.push([layers[i].id, Object.keys(layers[i].fields).join(', '), ...zoomLevels])
+    rows.push([
+      layers[i].id,
+      Object.keys(layers[i].fields).join(', '),
+      ...zoomLevels,
+    ])
   }
 
   if (destination) {
@@ -50,7 +56,7 @@ const document = (source: string, destination?: string) => {
     const table = new Table({
       head: head,
       style: { head: [] },
-      colAligns: ['left', 'left', 'middle']
+      colAligns: ['left', 'left', 'middle'],
     })
 
     table.push(...rows)
