@@ -4,6 +4,7 @@ import path from 'path'
 import fetch from 'node-fetch'
 
 interface KataYAML {
+  // eslint-disable-next-line
   [key: string]: any
 }
 
