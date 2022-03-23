@@ -13,6 +13,8 @@ The [social preview image](https://repository-images.githubusercontent.com/44403
 
 Example of the YAML config for `kata filter` command.
 
+kata.yml:
+
 ```
 features1:
   source: ./test1.geojson
@@ -26,6 +28,14 @@ features2:
     title: properties.label
   minzoom: 2
   maxzoom: 10
+```
+
+Then you can run `kata filter` command:
+
+```
+$ kata filter ./kata.yml
+{"type":"FeatureCollection","features":[...],"tippecanoe":{"minzoom":8,"maxzoom":14}}
+{"type":"FeatureCollection","features":[...],"tippecanoe":{"minzoom":2,"maxzoom":10}}
 ```
 
 ## Install
