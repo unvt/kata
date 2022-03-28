@@ -1,5 +1,5 @@
 {
-  "name": "kata",
+  "name": "@unvt/kata",
   "version": "1.0.1",
   "description": "A vector tile design information processing tool",
   "bin": {
