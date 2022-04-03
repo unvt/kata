@@ -2,11 +2,7 @@ import fs from 'fs'
 import YAML from 'js-yaml'
 import path from 'path'
 import fetch from 'node-fetch'
-
-interface KataYAML {
-  // eslint-disable-next-line
-  [key: string]: any
-}
+import { KataYAML, TippecanoeFeature } from '../lib/interfaces'
 
 const filter = async (source: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
@@ -39,14 +35,21 @@ const filter = async (source: string) => {
       geojson = JSON.parse(fs.readFileSync(srcPath, 'utf8'))
     }
 
-    geojson.tippecanoe = {}
+    geojson.features.forEach((feature: TippecanoeFeature) => {
+      feature.tippecanoe = {}
+      feature.tippecanoe.layer = key
+    })
 
-    if (String(features.minzoom).length && features.minzoom >= 0) {
-      geojson.tippecanoe.minzoom = features.minzoom
+    if (typeof features.minzoom !== 'undefined' && features.minzoom >= 0) {
+      geojson.features.forEach((feature: TippecanoeFeature) => {
+        feature.tippecanoe.minzoom = features.minzoom
+      })
     }
 
-    if (String(features.maxzoom).length && features.maxzoom >= 0) {
-      geojson.tippecanoe.maxzoom = features.maxzoom
+    if (typeof features.maxzoom !== 'undefined' && features.maxzoom >= 0) {
+      geojson.features.forEach((feature: TippecanoeFeature) => {
+        feature.tippecanoe.maxzoom = features.maxzoom
+      })
     }
 
     for (const prop in features.properties) {
