@@ -2,20 +2,7 @@ import fs from 'fs'
 import YAML from 'js-yaml'
 import path from 'path'
 import fetch from 'node-fetch'
-import { Feature } from 'GeoJSON'
-
-interface KataYAML {
-  // eslint-disable-next-line
-  [key: string]: any
-}
-
-interface TippecanoeFeature extends Feature {
-  tippecanoe: {
-    layer?: string,
-    minzoom?: number,
-    maxzoom?: number,
-  };
-}
+import { KataYAML, TippecanoeFeature } from '../lib/interfaces'
 
 const filter = async (source: string) => {
   let sourcePath = path.resolve(process.cwd(), source)
