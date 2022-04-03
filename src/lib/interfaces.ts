@@ -1,8 +1,16 @@
 import { Feature } from 'GeoJSON'
 
+export interface KataFeture {
+  source: string;
+  minzoom?: number;
+  maxzoom?: number;
+  properties?: {
+    [key: string]: any
+  }
+}
+
 export interface KataYAML {
-  // eslint-disable-next-line
-  [key: string]: any
+  [key: string]: KataFeture
 }
 
 export interface TippecanoeFeature extends Feature {

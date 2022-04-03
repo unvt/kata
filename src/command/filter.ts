@@ -40,13 +40,13 @@ const filter = async (source: string) => {
       feature.tippecanoe.layer = key
     })
 
-    if (String(features.minzoom).length && features.minzoom >= 0) {
+    if (typeof features.minzoom !== 'undefined' && features.minzoom >= 0) {
       geojson.features.forEach((feature: TippecanoeFeature) => {
         feature.tippecanoe.minzoom = features.minzoom
       })
     }
 
-    if (String(features.maxzoom).length && features.maxzoom >= 0) {
+    if (typeof features.maxzoom !== 'undefined' && features.maxzoom >= 0) {
       geojson.features.forEach((feature: TippecanoeFeature) => {
         feature.tippecanoe.maxzoom = features.maxzoom
       })
