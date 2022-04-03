@@ -30,7 +30,11 @@ describe('test the filter command.', () => {
   it('should have correct layer name as expected.', async () => {
     const geojsons = await filter(path.join(__dirname, './data/kata.yml'))
 
-    const keys = Object.keys(YAML.load(fs.readFileSync(path.join(__dirname, './data/kata.yml'), 'utf8')) as KataYAML)
+    const keys = Object.keys(
+      YAML.load(
+        fs.readFileSync(path.join(__dirname, './data/kata.yml'), 'utf8'),
+      ) as KataYAML,
+    )
 
     for (let i = 0; i < geojsons.length; i++) {
       for (let j = 0; j < geojsons[i].features.length; j++) {

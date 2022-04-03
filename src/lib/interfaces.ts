@@ -7,8 +7,8 @@ export interface KataYAML {
 
 export interface TippecanoeFeature extends Feature {
   tippecanoe: {
-    layer?: string,
-    minzoom?: number,
-    maxzoom?: number,
-  };
+    layer?: string
+    minzoom?: number
+    maxzoom?: number
+  }
 }
