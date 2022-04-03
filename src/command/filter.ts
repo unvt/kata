@@ -39,14 +39,21 @@ const filter = async (source: string) => {
       geojson = JSON.parse(fs.readFileSync(srcPath, 'utf8'))
     }
 
-    geojson.tippecanoe = {}
+    geojson.features.forEach((feature: any) => {
+      feature.tippecanoe = {}
+      feature.tippecanoe.layer = key
+    })
 
     if (String(features.minzoom).length && features.minzoom >= 0) {
-      geojson.tippecanoe.minzoom = features.minzoom
+      geojson.features.forEach((feature: any) => {
+        feature.tippecanoe.minzoom = features.minzoom
+      })
     }
 
     if (String(features.maxzoom).length && features.maxzoom >= 0) {
-      geojson.tippecanoe.maxzoom = features.maxzoom
+      geojson.features.forEach((feature: any) => {
+        feature.tippecanoe.maxzoom = features.maxzoom
+      })
     }
 
     for (const prop in features.properties) {

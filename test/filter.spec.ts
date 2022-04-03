@@ -17,10 +17,10 @@ describe('test the filter command.', () => {
       geojsons[2].features[0].properties.title,
     )
 
-    assert.deepEqual(8, geojsons[0].tippecanoe.minzoom)
-    assert.deepEqual(14, geojsons[0].tippecanoe.maxzoom)
+    assert.deepEqual(8, geojsons[0].features[0].tippecanoe.minzoom)
+    assert.deepEqual(14, geojsons[0].features[0].tippecanoe.maxzoom)
 
-    assert.deepEqual(2, geojsons[1].tippecanoe.minzoom)
-    assert.deepEqual(10, geojsons[1].tippecanoe.maxzoom)
+    assert.deepEqual(2, geojsons[1].features[0].tippecanoe.minzoom)
+    assert.deepEqual(10, geojsons[1].features[0].tippecanoe.maxzoom)
   })
 })
