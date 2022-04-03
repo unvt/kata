@@ -1,6 +1,6 @@
 import { Feature } from 'GeoJSON'
 
-export interface KataFeture {
+export interface KataFeature {
   source: string;
   minzoom?: number;
   maxzoom?: number;
@@ -10,7 +10,7 @@ export interface KataFeture {
 }
 
 export interface KataYAML {
-  [key: string]: KataFeture
+  [key: string]: KataFeature
 }
 
 export interface TippecanoeFeature extends Feature {
