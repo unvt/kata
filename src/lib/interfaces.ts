@@ -5,7 +5,7 @@ export interface KataFeture {
   minzoom?: number;
   maxzoom?: number;
   properties?: {
-    [key: string]: any
+    [key: string]: string | number
   }
 }
 
