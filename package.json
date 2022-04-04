@@ -1,6 +1,6 @@
 {
   "name": "@unvt/kata",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A vector tile design information processing tool",
   "bin": {
     "kata": "dist/cli.js"
