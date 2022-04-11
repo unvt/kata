@@ -1,4 +1,4 @@
-import { Feature } from 'GeoJSON'
+import { Feature } from 'geojson'
 
 export interface KataFeature {
   source: string;
