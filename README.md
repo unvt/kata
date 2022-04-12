@@ -34,8 +34,8 @@ Then you can run `kata filter` command:
 
 ```
 $ kata filter ./kata.yml
-{"type":"FeatureCollection","features":[...],"tippecanoe":{"minzoom":8,"maxzoom":14}}
-{"type":"FeatureCollection","features":[...],"tippecanoe":{"minzoom":2,"maxzoom":10}}
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{...},"geometry":{...}, "tippecanoe":{"layer":"features1","minzoom":8,"maxzoom":14}},...]}
+{"type":"FeatureCollection","features":[{"type":"Feature","properties":{...},"geometry":{...}, "tippecanoe":{"layer":"features2","minzoom":2,"maxzoom":10}},...]}
 ```
 
 ## Install
