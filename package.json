@@ -19,7 +19,7 @@
   },
   "author": "",
   "dependencies": {
-    "better-sqlite3": "^7.5.0",
+    "better-sqlite3": "^11.9.1",
     "cli-table": "^0.3.11",
     "commander": "^8.2.0",
     "js-yaml": "^4.1.0",
